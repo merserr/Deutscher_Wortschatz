@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:background="@drawable/background5">
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:max="6"/>
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/progressBar"
+        android:layout_marginTop="10dp"
+        tools:layout_editor_absoluteX="1dp" />
+
+
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="48dp">
+
+        <TextView
+            android:id="@+id/score1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#6FFB0A"
+            android:textSize="24dp" />
+
+
+
+        <TextView
+            android:id="@+id/score2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="60dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginBottom="0dp"
+            android:text="0"
+            android:textAlignment="center"
+            android:textColor="#F40606"
+            android:textSize="24dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        tools:layout_editor_absoluteX="16dp">
+
+
+
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:checked="true"
+            android:text="UA"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/checkBox2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="50dp"
+            android:checked="true"
+            android:text="DE"/>
+
+        <CheckBox
+            android:id="@+id/checkBox3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:checked="true"
+            android:text="Snd"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/workstroke1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="---"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <TextView
+        android:id="@+id/workstroke2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="180dp"
+        android:text="---"
+        android:textAlignment="center"
+        android:textSize="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        tools:layout_editor_absoluteX="45dp" />
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="15dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="@dimen/widthbutton"
+                android:layout_height="@dimen/heightbutton"
+                android:layout_margin="10dp"
+                android:background="@drawable/draw_button"
+                android:text="Prev"
+                android:textColor="@color/y"
+                android:textSize="@dimen/fontbutton"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="@dimen/widthbutton"
+                android:layout_height="@dimen/heightbutton"
+                android:layout_margin="10dp"
+                android:background="@drawable/draw_button"
+                android:text="2"
+                android:textColor="@color/y"
+                android:textSize="@dimen/fontbutton"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="@dimen/widthbutton"
+                android:layout_height="@dimen/heightbutton"
+                android:layout_margin="10dp"
+                android:background="@drawable/draw_button"
+                android:text="Next"
+                android:textColor="@color/y"
+                android:textSize="@dimen/fontbutton"
+                app:backgroundTint="@null" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="@dimen/widthbutton"
+                android:layout_height="@dimen/heightbutton"
+                android:layout_margin="10dp"
+                android:background="@drawable/draw_button"
+                android:text="sound"
+                android:textColor="@color/y"
+                android:textSize="@dimen/fontbutton"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="@dimen/widthbutton"
+                android:layout_height="@dimen/heightbutton"
+                android:layout_margin="10dp"
+                android:background="@drawable/draw_button"
+                android:text="Stop"
+                android:textColor="@color/y"
+                android:textSize="@dimen/fontbutton"
+                app:backgroundTint="@null" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="@dimen/widthbutton"
+                android:layout_height="@dimen/heightbutton"
+                android:layout_margin="10dp"
+                android:background="@drawable/draw_button"
+                android:text="6"
+                android:textColor="@color/y"
+                android:textSize="@dimen/fontbutton"
+                app:backgroundTint="@null" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
