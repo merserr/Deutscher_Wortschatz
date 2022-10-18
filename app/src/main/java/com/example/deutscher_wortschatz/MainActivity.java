@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int totalcount;
     int index_id;
     int index_lesson;
+    int my_lesson;
     int index_ourtext;
     int index_deutschtext;
     int index_oursound;
@@ -124,8 +125,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                        View itemSelected, int selectedItemPosition, long selectedId) {
 
                 String[] choose = getResources().getStringArray(R.array.lessons);
+
+                try {
+                    my_lesson = Integer.parseInt(choose[selectedItemPosition]);
+
+                } catch(NumberFormatException nfe) {
+                    System.out.println("Could not parse " + nfe);
+                }
+                extractionID();
+
                 Toast toast = Toast.makeText(getApplicationContext(),
-                        "Ваш выбор: " + choose[selectedItemPosition], Toast.LENGTH_SHORT);
+                        "Ваш выбор: " + my_lesson, Toast.LENGTH_SHORT);
                 toast.show();
             }
             public void onNothingSelected(AdapterView<?> parent) {
@@ -214,8 +224,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 counter=0;
                 int resID=getResources().getIdentifier("s", "raw", getPackageName());
 
-                MediaPlayer mediaPlayer=MediaPlayer.create(this,resID);
-                mediaPlayer.start();
+            //    MediaPlayer mediaPlayer=MediaPlayer.create(this,resID);
+            //    mediaPlayer.start();
 
                 break;
             case R.id.workstroke1:
@@ -254,9 +264,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (IOException e) {
             e.printStackTrace();
         }
-        mediaPlayer.setOnCompletionListener(this);
+            ProgressBar.setProgress(counter);
+            mediaPlayer.setOnCompletionListener(this);
 
-        mediaPlayer.start();
+            mediaPlayer.start();
         }
     }
 
@@ -386,7 +397,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mediaPlayer.release();
         counter = counter + 1;
         textscore2.setText(String.valueOf(counter));
-        ProgressBar.setProgress(counter);
 
         if(playenable) {
             Handler handler = new Handler();
@@ -406,6 +416,41 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    public void extractionID(){
+        SQLiteDatabase database = dbHelper.getWritableDatabase();
+        Cursor cursor = database.query("anfangtable", null, null, null, null, null, null);
+
+        cursor = database.query(
+                "anfangtable",
+                null,
+                "lesson = ?",
+                new String[] {String.valueOf(my_lesson)},
+                null,
+                null,
+                null);
+
+        if (cursor.moveToFirst()) {
+            index_id = cursor.getColumnIndex(DBHelper.KEY_ID);
+            index_lesson = cursor.getColumnIndex(DBHelper.KEY_LESSON);
+            index_ourtext = cursor.getColumnIndex(DBHelper.KEY_OURTEXT);
+            index_deutschtext = cursor.getColumnIndex(DBHelper.KEY_DEUTSCHTEXT);
+            index_oursound = cursor.getColumnIndex(DBHelper.KEY_OURSOUND);
+            index_deutschsound = cursor.getColumnIndex(DBHelper.KEY_DEUTSCHSOUND);
+
+
+
+            index = cursor.getInt(index_id);
+
+            Log.d(LOG_TAG,"///////////////////////////////////////////");
+            Log.d(LOG_TAG,"my_id = " + index);
+
+
+        } else
+            Log.d("mLog","0 rows");
+
+
+    }
+
     public void zeigen(){
         SQLiteDatabase database = dbHelper.getWritableDatabase();
         Cursor cursor = database.query("anfangtable", null, null, null, null, null, null);
@@ -422,6 +467,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 null,
                 null);
 
+    /*    cursor = database.query(
+                "anfangtable",
+                null,
+                "lesson = ?",
+                new String[] {String.valueOf(my_lesson)},
+                null,
+                null,
+                null);
+
+
+     */
         if (cursor.moveToFirst()) {
             index_id = cursor.getColumnIndex(DBHelper.KEY_ID);
             index_lesson = cursor.getColumnIndex(DBHelper.KEY_LESSON);

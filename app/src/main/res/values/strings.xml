@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Deutscher_Wortschatz</string>
     <string-array name="lessons">
-        <item>all</item>
+        <item>0</item>
         <item>32</item>
         <item>35</item>
         <item>36</item>
@@ -10,5 +10,6 @@
         <item>54</item>
         <item>55</item>
         <item>56</item>
+        <item>58</item>
     </string-array>
 </resources>
