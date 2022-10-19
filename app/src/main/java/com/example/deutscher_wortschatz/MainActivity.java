@@ -264,7 +264,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } catch (IOException e) {
             e.printStackTrace();
         }
-            ProgressBar.setProgress(counter);
+            ProgressBar.setProgress(counter+1);
             mediaPlayer.setOnCompletionListener(this);
 
             mediaPlayer.start();
@@ -431,12 +431,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (cursor.moveToFirst()) {
             index_id = cursor.getColumnIndex(DBHelper.KEY_ID);
-            index_lesson = cursor.getColumnIndex(DBHelper.KEY_LESSON);
+        /*    index_lesson = cursor.getColumnIndex(DBHelper.KEY_LESSON);
             index_ourtext = cursor.getColumnIndex(DBHelper.KEY_OURTEXT);
             index_deutschtext = cursor.getColumnIndex(DBHelper.KEY_DEUTSCHTEXT);
             index_oursound = cursor.getColumnIndex(DBHelper.KEY_OURSOUND);
             index_deutschsound = cursor.getColumnIndex(DBHelper.KEY_DEUTSCHSOUND);
 
+
+         */
 
 
             index = cursor.getInt(index_id);
