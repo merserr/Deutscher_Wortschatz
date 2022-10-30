@@ -408,7 +408,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 public void run() {
                     if(playenable) {
                         countermax = seekBar.getProgress() + 1;
-                        if (countermax > 10){countermax = 30;}
+                        if (countermax > 10){countermax = 50;}
                         if (counter < countermax) {
                             play();
                         } else {
