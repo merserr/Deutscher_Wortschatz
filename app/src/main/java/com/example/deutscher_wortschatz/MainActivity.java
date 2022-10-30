@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
+import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.database.Cursor;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //   private static final String DATA_SD = ;
     ProgressBar ProgressBar;
+    SeekBar seekBar;
     TextView work_stroke1;
     TextView work_stroke2;
     TextView textscore1;
@@ -51,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     int index;
     String indexstr;
     int counter;
+    int countermax;
     String dataForSaving="";
     private static final String LOG_TAG = "==Setting==";
     private static final String FILENAME = "deutsch_database.txt";
@@ -88,6 +91,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         ProgressBar = (ProgressBar) findViewById(R.id.progressBar);
         Spinner spinner = findViewById(R.id.spinner);
+        seekBar = (SeekBar) findViewById(R.id.seekBar);
 
         CheckBox1 = (CheckBox) findViewById(R.id.checkBox1);
         CheckBox2 = (CheckBox) findViewById(R.id.checkBox2);
@@ -403,7 +407,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             handler.postDelayed(new Runnable() {
                 public void run() {
                     if(playenable) {
-                        if (counter < 6) {
+                        countermax = seekBar.getProgress() + 1;
+                        if (countermax > 10){countermax = 30;}
+                        if (counter < countermax) {
                             play();
                         } else {
                             counter = 0;
