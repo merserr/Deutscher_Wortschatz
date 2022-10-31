@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-                if(presskeyenable) {
+        //        if(presskeyenable) {
                     presskeyenable = false;
                     playenable = true;
                     work_stroke1.setText("---");
@@ -179,7 +179,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
 
                     zeigen();
-                }
+        //        }
                 break;
             case R.id.button2:
                 Log.d(LOG_TAG, "Button 2 Pressed");
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button3:
                 Log.d(LOG_TAG, "Button Next Pressed");
-                if(presskeyenable){
+        //        if(presskeyenable){
                     presskeyenable = false;
                     playenable = true;
                     work_stroke1.setText("---");
@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 index = index + 1;
                 zeigen();
-                }
+        //        }
                 break;
             case R.id.button4:
                 Log.d(LOG_TAG, "Button Sound");
