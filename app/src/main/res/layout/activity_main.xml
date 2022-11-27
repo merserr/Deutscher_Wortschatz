@@ -164,7 +164,7 @@
                 android:layout_height="@dimen/heightbutton"
                 android:layout_margin="10dp"
                 android:background="@drawable/draw_button"
-                android:text="2"
+                android:text="play"
                 android:textColor="@color/y"
                 android:textSize="@dimen/fontbutton"
                 app:backgroundTint="@null" />

@@ -65,10 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     boolean isplay;
     boolean presskeyenable=true;
     boolean playenable;
+ //   boolean nextplayenable;
     String workstroke1;
     String workstroke2;
     String name_sound_file_u;
-    String name_sound_file_d;
+    String name_sound_file_d ="s";
 
     int totalcount;
     int index_id;
@@ -118,7 +119,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // Настраиваем адаптер
         ArrayAdapter<?> adapter =
                 ArrayAdapter.createFromResource(this, R.array.lessons,
-                        android.R.layout.simple_spinner_item);
+                android.R.layout.simple_spinner_item);
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
 // Вызываем адаптер
@@ -170,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //        if(presskeyenable) {
                     presskeyenable = false;
-                    playenable = true;
+        //            playenable = true;
                     work_stroke1.setText("---");
                     work_stroke2.setText("---");
 
@@ -183,6 +185,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button2:
                 Log.d(LOG_TAG, "Button 2 Pressed");
+                playenable = true;
+                play();
+            /*
                 if(presskeyenable) {
                     presskeyenable = false;
                     playenable = true;
@@ -204,12 +209,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                     zeigen();
                 }
+                */
                 break;
             case R.id.button3:
                 Log.d(LOG_TAG, "Button Next Pressed");
         //        if(presskeyenable){
                     presskeyenable = false;
-                    playenable = true;
+        //            playenable = true;
                     work_stroke1.setText("---");
                 work_stroke2.setText("---");
 
@@ -448,10 +454,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             index = cursor.getInt(index_id);
-
             Log.d(LOG_TAG,"///////////////////////////////////////////");
             Log.d(LOG_TAG,"my_id = " + index);
-
 
         } else
             Log.d("mLog","0 rows");
